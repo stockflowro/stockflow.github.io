@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - SaveIT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 60px auto 40px auto;
+      background: #F5F6FA;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(26,35,126,0.04);
+      padding: 36px 28px;
+    }
+    .login-container h1 {
+      color: #1A237E;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .login-container label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 12px 0;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 4px;
+      background: #1565C0;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .login-container button:hover {
+      background: #1976D2;
+    }
+    .login-container .error {
+      color: #d32f2f;
+      text-align: center;
+      margin-bottom: 12px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo">
+        <a href="index.html">
+            <img src="assets/img/logo-tp.png" alt="SaveIT" style="height:40px;">
+          </a>
+      </div>
+      <form class="search-bar" action="listare.html" method="get">
+        <input type="text" name="q" placeholder="Caută produse, categorii...">
+        <button type="submit" title="Caută">&#128269;</button>
+      </form>
+      <nav class="header-nav">
+        <a href="login.html" class="btn-secondary" id="loginBtn">Login</a>
+        <a href="dashboard.html" class="btn-secondary" id="dashboardBtn" style="display:none;">Dashboard</a>
+        <a href="adauga.html" class="btn-primary">Listează stoc</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="login-container">
+      <h1>Autentificare</h1>
+      <div class="error" id="loginError">Date incorecte!</div>
+      <form id="loginForm">
+        <label for="username">Utilizator</label>
+        <input type="text" id="username" name="username" required autocomplete="username">
+
+        <label for="password">Parolă</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password">
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-flex">
+      <div>
+        <strong>SaveIT</strong> &copy; 2024
+      </div>
+      <div>
+        <a href="#">Despre</a> | 
+        <a href="#">Termeni</a> | 
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="Facebook"><img src="assets/img/facebook.svg" alt="Facebook" width="20"></a>
+        <a href="#" title="LinkedIn"><img src="assets/img/linkedin.svg" alt="LinkedIn" width="20"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simulare login: user = admin, parola = admin
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const errorDiv = document.getElementById('loginError');
+      if (user === 'admin' && pass === 'admin') {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'dashboard.html';
+      } else {
+        errorDiv.style.display = 'block';
+      }
+    });
+
+    // Afișare corectă butoane Login/Dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      const loginBtn = document.getElementById('loginBtn');
+      const dashboardBtn = document.getElementById('dashboardBtn');
+      if (isLoggedIn) {
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (dashboardBtn) dashboardBtn.style.display = 'inline-block';
+      } else {
+        if (loginBtn) loginBtn.style.display = 'inline-block';
+        if (dashboardBtn) dashboardBtn.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

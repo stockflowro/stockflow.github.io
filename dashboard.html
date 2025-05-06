@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard utilizator - SaveIT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    .dashboard-section {
+      background: #F5F6FA;
+      border-radius: 12px;
+      padding: 32px 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 8px rgba(26,35,126,0.04);
+    }
+    .dashboard-section h2 {
+      color: #1A237E;
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 1.3rem;
+    }
+    .dashboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+    .dashboard-table th, .dashboard-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: left;
+      font-size: 1rem;
+    }
+    .dashboard-table th {
+      background: #E3F2FD;
+      color: #1A237E;
+      font-weight: 600;
+    }
+    .dashboard-table tr:last-child td {
+      border-bottom: none;
+    }
+    .dashboard-btn {
+      background: #1565C0;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+    .dashboard-btn:hover {
+      background: #1976D2;
+    }
+    .dashboard-raport {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .raport-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(26,35,126,0.07);
+      padding: 18px 24px;
+      min-width: 180px;
+      text-align: center;
+      color: #1A237E;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo">
+        <a href="index.html">
+            <img src="assets/img/logo-tp.png" alt="SaveIT" style="height:40px;">
+          </a>
+      </div>
+      <form class="search-bar" action="listare.html" method="get">
+        <input type="text" name="q" placeholder="Caută produse, categorii...">
+        <button type="submit" title="Caută">&#128269;</button>
+      </form>
+      <nav class="header-nav">
+        <a href="login.html" class="btn-secondary" id="loginBtn">Login</a>
+        <a href="dashboard.html" class="btn-secondary" id="dashboardBtn" style="display:none;">Dashboard</a>
+        <a href="adauga.html" class="btn-primary">Listează stoc</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" style="margin: 40px auto 40px auto; max-width: 1100px;">
+      <h1 style="color:#1A237E; margin-bottom: 32px; text-align:center;">Dashboard utilizator</h1>
+
+      <button id="logoutBtn" class="dashboard-btn" style="float:right; margin-bottom: 16px;">Logout</button>
+
+      <!-- Stocuri listate -->
+      <section class="dashboard-section">
+        <h2>Stocuri listate</h2>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>Produs</th>
+              <th>Cantitate</th>
+              <th>Preț/buc</th>
+              <th>Depozit</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Set căști wireless</td>
+              <td>1200</td>
+              <td>11,90 RON</td>
+              <td>București 2</td>
+              <td style="color:green;">Activ</td>
+            </tr>
+            <tr>
+              <td>Parfum unisex 100ml</td>
+              <td>500</td>
+              <td>29,00 RON</td>
+              <td>Cluj</td>
+              <td style="color:green;">Activ</td>
+            </tr>
+            <tr>
+              <td>Jucărie educativă lemn</td>
+              <td>300</td>
+              <td>15,50 RON</td>
+              <td>Iași</td>
+              <td style="color:orange;">Stoc scăzut</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="adauga.html" class="dashboard-btn">Adaugă produs nou</a>
+      </section>
+
+      <!-- Comenzi primite -->
+      <section class="dashboard-section">
+        <h2>Comenzi primite</h2>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>ID Comandă</th>
+              <th>Produs</th>
+              <th>Cantitate</th>
+              <th>Client</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1234</td>
+              <td>Set căști wireless</td>
+              <td>100</td>
+              <td>SC Techno SRL</td>
+              <td style="color:orange;">În procesare</td>
+            </tr>
+            <tr>
+              <td>#1235</td>
+              <td>Parfum unisex 100ml</td>
+              <td>50</td>
+              <td>Beauty Import</td>
+              <td style="color:green;">Finalizată</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Comenzi trimise -->
+      <section class="dashboard-section">
+        <h2>Comenzi trimise</h2>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>ID Comandă</th>
+              <th>Produs</th>
+              <th>Cantitate</th>
+              <th>Furnizor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1220</td>
+              <td>Set lenjerie pat 2 persoane</td>
+              <td>20</td>
+              <td>Home Deco SRL</td>
+              <td style="color:green;">Livrată</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Rapoarte -->
+      <section class="dashboard-section">
+        <h2>Rapoarte rapide</h2>
+        <div class="dashboard-raport">
+          <div class="raport-card">
+            <div style="font-size:2rem; font-weight:700;">1.570</div>
+            <div>Produse vândute</div>
+          </div>
+          <div class="raport-card">
+            <div style="font-size:2rem; font-weight:700;">42.300 RON</div>
+            <div>Valoare totală vânzări</div>
+          </div>
+          <div class="raport-card">
+            <div style="font-size:2rem; font-weight:700;">3</div>
+            <div>Stocuri epuizate</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Retragere fonduri -->
+      <section class="dashboard-section" style="text-align:center;">
+        <h2>Retragere fonduri</h2>
+        <button class="dashboard-btn" onclick="alert('Simulare: Cererea de retragere a fost trimisă!')">Retrage fonduri</button>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-flex">
+      <div>
+        <strong>SaveIT</strong> &copy; 2024
+      </div>
+      <div>
+        <a href="#">Despre</a> | 
+        <a href="#">Termeni</a> | 
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="Facebook"><img src="assets/img/facebook.svg" alt="Facebook" width="20"></a>
+        <a href="#" title="LinkedIn"><img src="assets/img/linkedin.svg" alt="LinkedIn" width="20"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

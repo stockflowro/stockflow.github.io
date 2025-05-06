@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalii produs - SaveIT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-flex">
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/img/logo-tp.png" alt="SaveIT" style="height:40px;">
+            </a>
+      </div>
+      <form class="search-bar" action="listare.html" method="get">
+        <input type="text" name="q" placeholder="Caută produse, categorii...">
+        <button type="submit" title="Caută">&#128269;</button>
+      </form>
+      <nav class="header-nav">
+        <a href="login.html" class="btn-secondary" id="loginBtn">Login</a>
+        <a href="dashboard.html" class="btn-secondary" id="dashboardBtn" style="display:none;">Dashboard</a>
+        <a href="adauga.html" class="btn-primary">Listează stoc</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" style="margin-top: 40px; margin-bottom: 40px;">
+      <a href="listare.html" style="color:#1565C0; text-decoration:underline; font-size:1rem;">&larr; Înapoi la listare</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 24px;">
+        <!-- Imagine produs -->
+        <div style="flex: 1 1 320px; max-width: 400px; background: #F5F6FA; border-radius: 12px; display: flex; align-items: center; justify-content: center; min-height: 320px;">
+          <img src="assets/img/produs1.jpg" alt="Set căști wireless" style="max-width: 90%; max-height: 300px; border-radius: 10px; box-shadow: 0 2px 8px rgba(26,35,126,0.10);">
+        </div>
+        <!-- Detalii produs -->
+        <div style="flex: 2 1 400px;">
+          <h1 style="color:#1A237E; margin-top:0;">Set căști wireless</h1>
+          <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 18px;">
+            <div style="background:#E3F2FD; border-radius:6px; padding:8px 16px; color:#1565C0; font-weight:600;">
+              Cantitate disponibilă: <span style="color:#1A237E;">1200 buc</span>
+            </div>
+            <div style="background:#E3F2FD; border-radius:6px; padding:8px 16px; color:#1565C0; font-weight:600;">
+              Preț/buc: <span style="color:#1A237E;">11,90 RON</span>
+            </div>
+            <div style="background:#E3F2FD; border-radius:6px; padding:8px 16px; color:#1565C0; font-weight:600;">
+              Preț total pachet: <span style="color:#1A237E;">1.190 RON</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 12px; color:#444;">
+            <strong>Depozit:</strong> București 2, Sector 6<br>
+            <strong>Listat la:</strong> 12.06.2024<br>
+            <strong>Stare produs:</strong> Nou<br>
+            <strong>Termen livrare estimat:</strong> 2-4 zile lucrătoare
+          </div>
+          <div style="margin-bottom: 24px;">
+            <strong>Descriere:</strong>
+            <p style="margin:8px 0 0 0; color:#333; font-size:1.08rem;">
+              Set de căști wireless cu autonomie de până la 20h, compatibile cu orice dispozitiv Bluetooth. Ambalaj original, produs nou, ideal pentru revânzare sau promoții corporate. Disponibil în stoc limitat, livrare rapidă din depozitul București 2.
+            </p>
+          </div>
+          <button class="btn-primary" id="cereOfertaBtn" style="font-size:1.1rem; padding:14px 36px; border:none; border-radius:6px; cursor:pointer;">Cere ofertă</button>        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-flex">
+      <div>
+        <strong>SaveIT</strong> &copy; 2024
+      </div>
+      <div>
+        <a href="#">Despre</a> | 
+        <a href="#">Termeni</a> | 
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="Facebook"><img src="assets/img/facebook.svg" alt="Facebook" width="20"></a>
+        <a href="#" title="LinkedIn"><img src="assets/img/linkedin.svg" alt="LinkedIn" width="20"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL CERERE OFERTĂ -->
+  <div id="modalOferta" class="modal-oferta">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModalOferta">&times;</span>
+      <h2>Cere ofertă pentru acest produs</h2>
+      <form id="ofertaForm">
+        <label for="numeFirma">Nume firmă</label>
+        <input type="text" id="numeFirma" name="numeFirma" required>
+
+        <label for="emailFirma">Email</label>
+        <input type="email" id="emailFirma" name="emailFirma" required>
+
+        <label for="cantitateSolicitata">Cantitate dorită</label>
+        <input type="number" id="cantitateSolicitata" name="cantitateSolicitata" min="1" required>
+
+        <label for="mesaj">Mesaj suplimentar (opțional)</label>
+        <textarea id="mesaj" name="mesaj" rows="2"></textarea>
+
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:18px;">Trimite cererea</button>
+      </form>
+      <div id="ofertaSuccess" style="display:none; color:green; margin-top:18px; text-align:center; font-weight:600;">
+        Cererea a fost trimisă! Vei fi contactat pe email.
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Deschide modalul la click pe buton
+    document.getElementById('cereOfertaBtn').onclick = function() {
+      document.getElementById('modalOferta').classList.add('active');
+    };
+    // Închide modalul la click pe X sau în afara ferestrei
+    document.getElementById('closeModalOferta').onclick = function() {
+      document.getElementById('modalOferta').classList.remove('active');
+      document.getElementById('ofertaForm').reset();
+      document.getElementById('ofertaSuccess').style.display = 'none';
+    };
+    window.onclick = function(event) {
+      const modal = document.getElementById('modalOferta');
+      if (event.target === modal) {
+        modal.classList.remove('active');
+        document.getElementById('ofertaForm').reset();
+        document.getElementById('ofertaSuccess').style.display = 'none';
+      }
+    };
+    // Simulare trimitere cerere ofertă
+    document.getElementById('ofertaForm').onsubmit = function(e) {
+      e.preventDefault();
+      document.getElementById('ofertaForm').reset();
+      document.getElementById('ofertaSuccess').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('modalOferta').classList.remove('active');
+        document.getElementById('ofertaSuccess').style.display = 'none';
+      }, 2500);
+    };
+  </script>
+</body>
+</html>

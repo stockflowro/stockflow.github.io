@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <!--
+⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿
+⣿⣿⣿⣿⣿⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿
+⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿
+⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣴⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢰⣹⡆⠀⠀⠀⠀⠀⠀⣭⣷⠀⠀⠀⠸⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠈⠉⠀⠀⠤⠄⠀⠀⠀⠉⠁⠀⠀⠀⠀⢿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⢾⣿⣷⠀⠀⠀⠀⡠⠤⢄⠀⠀⠀⠠⣿⣿⣷⠀⢸⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿
+
+whatcha doin' here? -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B2B Lichidare Stocuri - SaveIT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Exemplu font Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/img/logo-tp.png" alt="SaveIT" style="height:40px;">
+        </a>
+      </div>
+      <form class="search-bar" action="listare.html" method="get">
+        <input type="text" name="q" placeholder="Caută produse, categorii...">
+        <button type="submit" title="Caută">&#128269;</button>
+      </form>
+      <nav class="header-nav">
+        <a href="login.html" class="btn-secondary" id="loginBtn">Login</a>
+        <a href="dashboard.html" class="btn-secondary" id="dashboardBtn" style="display:none;">Dashboard</a>
+        <a href="adauga.html" class="btn-primary">Listează stoc</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CATEGORII POPULARE -->
+  <section class="categories-section">
+    <div class="container">
+      <h2>Categorii populare</h2>
+      <div class="categories-list">
+        <a href="listare.html?cat=electronice" class="category-card">Electronice</a>
+        <a href="listare.html?cat=cosmetice" class="category-card">Cosmetice</a>
+        <a href="listare.html?cat=fashion" class="category-card">Fashion</a>
+        <a href="listare.html?cat=jucarii" class="category-card">Jucării</a>
+        <a href="listare.html?cat=casa" class="category-card">Casă & Grădină</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARUSEL OFERTE SPECIALE -->
+  <section class="carousel-section">
+    <div class="container">
+      <div class="carousel" id="specialOffersCarousel">
+        <div class="carousel-slide active">
+          <img src="assets/img/reducere.jpg" alt="Reduceri masive">
+          <div class="carousel-caption">
+            <h3>Reduceri masive la electronice!</h3>
+            <p>Profită de cele mai bune prețuri la stocuri limitate.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/img/stoc-limitat.jpg" alt="Stoc limitat">
+          <div class="carousel-caption">
+            <h3>Stoc limitat la cosmetice</h3>
+            <p>Oferte exclusive pentru partenerii B2B.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/img/ultima-sansa.jpg" alt="Ultima șansă">
+          <div class="carousel-caption">
+            <h3>Ultima șansă: lichidare sezon</h3>
+            <p>Produse fashion la prețuri de lichidare.</p>
+          </div>
+        </div>
+        <!-- Butoane carusel -->
+        <button class="carousel-btn prev" id="carouselPrev">&#10094;</button>
+        <button class="carousel-btn next" id="carouselNext">&#10095;</button>
+        <div class="carousel-indicators">
+          <span class="indicator active"></span>
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMANDĂRI INTELIGENTE -->
+  <section class="recommendations-section">
+    <div class="container">
+      <h2>Alte selleri au cumpărat și...</h2>
+      <div class="product-grid" id="recommendedProducts">
+        <!-- Tile-uri produse generate din JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-flex">
+      <div>
+        <strong>SaveIT</strong> &copy; 2024
+      </div>
+      <div>
+        <a href="#">Despre</a> | 
+        <a href="#">Termeni</a> | 
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="Facebook"><img src="assets/img/facebook.svg" alt="Facebook" width="20"></a>
+        <a href="#" title="LinkedIn"><img src="assets/img/linkedin.svg" alt="LinkedIn" width="20"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS pentru carusel și generare produse -->
+  <script src="js/main.js"></script>
+</body>
+</html>

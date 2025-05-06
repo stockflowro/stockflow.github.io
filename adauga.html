@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adaugă produs nou - SaveIT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo">
+        <a href="index.html">
+            <img src="assets/img/logo-tp.png" alt="SaveIT" style="height:40px;">
+          </a>
+      </div>
+      <form class="search-bar" action="listare.html" method="get">
+        <input type="text" name="q" placeholder="Caută produse, categorii...">
+        <button type="submit" title="Caută">&#128269;</button>
+      </form>
+      <nav class="header-nav">
+        <a href="login.html" class="btn-secondary" id="loginBtn">Login</a>
+        <a href="dashboard.html" class="btn-secondary" id="dashboardBtn" style="display:none;">Dashboard</a>
+        <a href="adauga.html" class="btn-primary">Listează stoc</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" style="max-width: 600px; margin: 40px auto 40px auto;">
+      <h1 style="color:#1A237E; margin-bottom: 24px; text-align:center;">Adaugă un produs nou</h1>
+      <form id="addProductForm" style="background: #F5F6FA; border-radius: 12px; padding: 32px 24px; box-shadow: 0 2px 8px rgba(26,35,126,0.04);">
+        <div style="margin-bottom: 18px;">
+          <label for="titlu" style="font-weight:600;">Titlu produs</label>
+          <input type="text" id="titlu" name="titlu" required style="width:100%;padding:10px;margin-top:4px;">
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label for="poza" style="font-weight:600;">Poză produs</label>
+          <input type="file" id="poza" name="poza" accept="image/*" style="width:100%;padding:10px;margin-top:4px;">
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label for="descriere" style="font-weight:600;">Descriere</label>
+          <textarea id="descriere" name="descriere" rows="3" required style="width:100%;padding:10px;margin-top:4px;"></textarea>
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label for="cantitate" style="font-weight:600;">Cantitate</label>
+          <input type="number" id="cantitate" name="cantitate" min="1" required style="width:100%;padding:10px;margin-top:4px;">
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label for="pret" style="font-weight:600;">Preț per bucată (RON)</label>
+          <input type="number" id="pret" name="pret" min="0" step="0.01" required style="width:100%;padding:10px;margin-top:4px;">
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label for="tipProdus" style="font-weight:600;">Tip produs</label>
+          <select id="tipProdus" name="tipProdus" required style="width:100%;padding:10px;margin-top:4px;">
+            <option value="">Selectează...</option>
+            <option>Nou</option>
+            <option>Retur</option>
+            <option>Resigilat</option>
+            <option>Sezonal</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label for="depozit" style="font-weight:600;">Locația depozitului</label>
+          <select id="depozit" name="depozit" required style="width:100%;padding:10px;margin-top:4px;">
+            <option value="">Selectează...</option>
+            <option>București 1</option>
+            <option>București 2</option>
+            <option>Cluj</option>
+            <option>Timișoara</option>
+            <option>Iași</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label for="conditii" style="font-weight:600;">Condiții speciale</label>
+          <input type="text" id="conditii" name="conditii" placeholder="ex: minim comandă 50 buc, fără retur" style="width:100%;padding:10px;margin-top:4px;">
+        </div>
+        <div style="margin-bottom: 24px;">
+          <label for="expirare" style="font-weight:600;">Data estimată de expirare (opțional)</label>
+          <input type="date" id="expirare" name="expirare" style="width:100%;padding:10px;margin-top:4px;">
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;font-size:1.1rem;padding:14px 0;">Publică produsul</button>
+      </form>
+      <div id="successMessage" style="display:none; margin-top:24px; color:green; text-align:center; font-weight:600;">
+        Produsul a fost adăugat cu succes! (simulare)
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-flex">
+      <div>
+        <strong>SaveIT</strong> &copy; 2024
+      </div>
+      <div>
+        <a href="#">Despre</a> | 
+        <a href="#">Termeni</a> | 
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="Facebook"><img src="assets/img/facebook.svg" alt="Facebook" width="20"></a>
+        <a href="#" title="LinkedIn"><img src="assets/img/linkedin.svg" alt="LinkedIn" width="20"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simulare trimitere formular (fără backend)
+    document.getElementById('addProductForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('addProductForm').reset();
+      document.getElementById('successMessage').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('successMessage').style.display = 'none';
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

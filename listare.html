@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listare produse - SaveIT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo">
+        <a href="index.html">
+            <img src="assets/img/logo-tp.png" alt="SaveIT" style="height:40px;">
+          </a>
+      </div>
+      <form class="search-bar" action="listare.html" method="get">
+        <input type="text" name="q" placeholder="Caută produse, categorii...">
+        <button type="submit" title="Caută">&#128269;</button>
+      </form>
+      <nav class="header-nav">
+        <a href="login.html" class="btn-secondary" id="loginBtn">Login</a>
+        <a href="dashboard.html" class="btn-secondary" id="dashboardBtn" style="display:none;">Dashboard</a>
+        <a href="adauga.html" class="btn-primary">Listează stoc</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" style="display: flex; gap: 32px; margin-top: 40px; margin-bottom: 40px;">
+      <!-- SIDEBAR FILTRE -->
+      <aside style="min-width: 240px; max-width: 300px;">
+        <form id="filtersForm" style="background: #F5F6FA; border-radius: 10px; padding: 24px; box-shadow: 0 2px 8px rgba(26,35,126,0.04);">
+          <h3 style="color:#1A237E; margin-top:0;">Filtrează</h3>
+          <div style="margin-bottom: 18px;">
+            <label for="categorie">Categorie</label>
+            <select id="categorie" name="categorie" style="width:100%;padding:8px;margin-top:4px;">
+              <option value="">Toate</option>
+              <option>Electronice</option>
+              <option>Cosmetice</option>
+              <option>Fashion</option>
+              <option>Jucării</option>
+              <option>Casă & Grădină</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 18px;">
+            <label for="cantitate">Cantitate minimă</label>
+            <input type="number" id="cantitate" name="cantitate" min="1" style="width:100%;padding:8px;margin-top:4px;">
+          </div>
+          <div style="margin-bottom: 18px;">
+            <label for="pret">Gama de preț</label>
+            <input type="number" id="pretMin" name="pretMin" placeholder="Min" style="width:48%;padding:8px;margin-top:4px;">
+            <input type="number" id="pretMax" name="pretMax" placeholder="Max" style="width:48%;padding:8px;margin-top:4px;float:right;">
+          </div>
+          <div style="margin-bottom: 18px; clear:both;">
+            <label for="depozit">Locația depozitului</label>
+            <select id="depozit" name="depozit" style="width:100%;padding:8px;margin-top:4px;">
+              <option value="">Toate</option>
+              <option>București 1</option>
+              <option>București 2</option>
+              <option>Cluj</option>
+              <option>Timișoara</option>
+              <option>Iași</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 18px;">
+            <label for="tipProdus">Tip produs</label>
+            <select id="tipProdus" name="tipProdus" style="width:100%;padding:8px;margin-top:4px;">
+              <option value="">Toate</option>
+              <option>Nou</option>
+              <option>Retur</option>
+              <option>Lichidare sezon</option>
+              <option>Resigilat</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;margin-top:10px;">Aplică filtre</button>
+        </form>
+      </aside>
+
+      <!-- GRID PRODUSE -->
+      <section style="flex:1;">
+        <h2 style="color:#1A237E; margin-bottom: 24px;">Produse disponibile</h2>
+        <div class="product-grid" id="productList">
+            <div class="product-tile">
+                <div class="product-tile-img-wrapper">
+                  <img src="assets/img/produs1.jpg" alt="Produs 1">
+                </div>
+                <div class="product-title">Set căști wireless</div>
+                <div class="product-info">Cantitate: 1200 buc</div>
+                <div class="product-info">Depozit: București 2</div>
+                <div class="product-price">11,90 RON/buc</div>
+                <a href="produs.html?id=1" class="product-btn">Vezi detalii</a>
+              </div>
+              <div class="product-tile">
+                <div class="product-tile-img-wrapper">
+                  <img src="assets/img/produs2.jpg" alt="Produs 2">
+                </div>
+                <div class="product-title">Parfum unisex 100ml</div>
+                <div class="product-info">Cantitate: 500 buc</div>
+                <div class="product-info">Depozit: Cluj</div>
+                <div class="product-price">29,00 RON/buc</div>
+                <a href="produs.html?id=2" class="product-btn">Vezi detalii</a>
+              </div>
+          <div class="product-tile">
+            <img src="assets/img/produs3.jpg" alt="Produs 3">
+            <div class="product-title">Jucărie educativă lemn</div>
+            <div class="product-info">Cantitate: 300 buc</div>
+            <div class="product-info">Depozit: Iași</div>
+            <div class="product-price">15,50 RON/buc</div>
+            <a href="produs.html?id=3" class="product-btn">Vezi detalii</a>
+          </div>
+          <div class="product-tile">
+            <img src="assets/img/produs4.jpg" alt="Produs 4">
+            <div class="product-title">Set lenjerie pat 2 persoane</div>
+            <div class="product-info">Cantitate: 200 buc</div>
+            <div class="product-info">Depozit: Timișoara</div>
+            <div class="product-price">49,90 RON/buc</div>
+            <a href="produs.html?id=4" class="product-btn">Vezi detalii</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-flex">
+      <div>
+        <strong>SaveIT</strong> &copy; 2024
+      </div>
+      <div>
+        <a href="#">Despre</a> | 
+        <a href="#">Termeni</a> | 
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="Facebook"><img src="assets/img/facebook.svg" alt="Facebook" width="20"></a>
+        <a href="#" title="LinkedIn"><img src="assets/img/linkedin.svg" alt="LinkedIn" width="20"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
